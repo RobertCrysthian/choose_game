@@ -1,0 +1,22 @@
+
+.div_inGame{
+    display:flex;
+    margin-top: 80px;
+    justify-content:space-evenly;
+    height: 100vh;
+}
+
+.align{
+    display:flex;
+    justify-content: center;
+}
+
+.div_elementos_tela {
+    display:flex;
+}
+
+.div_botao{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
