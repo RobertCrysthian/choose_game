@@ -20,3 +20,7 @@
     flex-direction: column;
     justify-content: center;
 }
+
+.escondido{
+    display: none;
+}

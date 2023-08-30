@@ -2,9 +2,9 @@ import Button from "../Button"
 import "./Card.css"
 
 
-export default function Card({name, image} : {name:string, image: string}){
+export default function Card({name, image, className} : {name:string, image: string, className: string}){
     return(
-        <section className="section_card">
+        <section className={`section_card ${className}`} >
             <div className="card">
                 <div className="card_background">
                     <h1>{name}</h1>
