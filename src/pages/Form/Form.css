@@ -5,21 +5,23 @@
 }
 
 .form{
-    background-color: rgb(37, 37, 37);
+    background-color: #4F5259;
     display:flex;
     flex-direction: column;
     align-items: center;
     width: 65%;
     height: 600px;
+    border-radius: 15px;
 }
 
 .form h1{
     margin: 30px;
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .form label{
     padding: 10px;
+    font-size: 20px;
 }
 
 .form input{
@@ -28,4 +30,75 @@
     font-size: 20px;
     font-family: 'Poppins', sans-serif;
     margin-bottom:15px ;
+}
+
+.divs_checkbox{
+    display:flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.divs_checkbox .a, .b{
+    display:flex;
+}
+
+.divs_checkbox input{
+    width: 40px;
+}
+
+.section_list{
+    display:flex;
+
+    justify-content: center;
+}
+.itens_list{
+    margin:5%;
+    background-color: #4F5259;
+    width: 85%;
+    height: 100%;
+    border-radius: 15px;
+    padding: 15px;
+    display:flex;
+    justify-content: center;
+    
+}
+
+tr{
+    border:1px solid #f2f2f2;
+    padding: 10px;
+}
+
+td{
+    border:1px solid #111111;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+th{
+    height: 50%;
+}
+
+.table__{
+    color:aliceblue;
+    width: 90%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn_erro{
+    color:rgb(250, 250, 250);
+    background-color: rgb(197, 25, 25);
+    padding: 10px 34%;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    border: 1px solid #360606;
+}
+.btn_erro:hover{
+    cursor:pointer;
+    background-color: rgb(214, 49, 49);
+    opacity: 0.8;
+}
+
+td a{
+    color:#ff7c7c;
+    text-decoration: none;
 }

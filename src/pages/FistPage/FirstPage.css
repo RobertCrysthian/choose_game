@@ -1,0 +1,35 @@
+.section_firstPage{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin:3.5%;
+}
+
+.section_firstPage h1{
+    font-size: 40px;
+    margin-bottom: 4%;
+}
+
+.section_firstPage a{
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size:20px;
+    color:#F2F2F2;
+    background-color:#4F5259;
+    width: 100%;
+    height: 50px;
+    margin: 15px 5%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+
+}
+
+.div_links{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 38%;
+    
+}
