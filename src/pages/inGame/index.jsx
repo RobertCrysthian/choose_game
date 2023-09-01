@@ -8,7 +8,7 @@ import iData from "../../interfaces/iData/iData";
 export default function InGame(){
 
 
-    const [id, setId] = useState(11)
+
     const [valor1, setValor1] = useState(1);
     const [valor2, setValor2] = useState(2);
 
@@ -21,28 +21,37 @@ export default function InGame(){
 
     const [array, setArray] = useState([])
 
+
+
     useEffect(() => {
         axios.get("http://localhost:8080/itens")
         .then(response => setData(response.data))
     }, [])
 
+    
+    useEffect(() => {
+        axios.get("http://localhost:8080/itens")
+        .then(response => setId(response.data.length+1))
+    }, [])
 
+
+    const [id, setId] = useState(0)
 
     const clickButton =(e) => {
             setValor1(valor1 + 2);
             setValor2(valor2 + 2);
-
         var novoItem = {
             nome: e.nome,
             link: e.link,
+            video: e.video,
             id:id
         }
 
-            setArray([...array, novoItem] )
+        setArray([...array, novoItem] )
         setId(id+1)
     }
 
-console.log(array)
+
 
     var elementosTela = data.filter((e) => {
         return e.id === valor1 || e.id === valor2
@@ -53,25 +62,27 @@ console.log(array)
     })
 
 
-    if(valor1 >= 11){
+    if(valor1 > data.length){
         escondido=false
 
     }
-
-    console.log(elementosTela)
-
-    const selecionados = data.filter((e) => {
-        return e.selecionado == true
-    })
-
-    const tudo = [...data, ...selecionados]
-console.log(valor1, valor2)
+    console.log(array)
 
     return(
         <section>
             <div className="div_inGame">
                 <div className="div_elementos_tela">
                     {elementosTela.map((e) => {
+                        if(e.video == true){
+                            return(
+                                <>
+                                    <iframe width="560" height="315" src={`https://www.youtube.com/embed/${e.link}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                    <div className="div_botao">
+                                        <Button text="Escolher" onClick={() => clickButton(e)}/>
+                                    </div>
+                                </>
+                                )
+                        }else{
                         return(
                             <>
                                 <Card name={e.nome} image={e.link} key={e.id}/>
@@ -79,9 +90,20 @@ console.log(valor1, valor2)
                                     <Button text="Escolher" onClick={() => clickButton(e)}/>
                                 </div>
                             </>
-                        )
+                        )}
                     })}
                     {elementosTela2.map((e) => {
+                        if (e.video == true) {
+                            return (
+                                <>
+                                    <iframe width="560" height="315" src={`https://www.youtube.com/embed/${e.link}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                    <div className="div_botao">
+                                        <Button text="Escolher" onClick={() => clickButton(e)} />
+                                    </div>
+                                </>
+                            )
+                        }
+
                         return(
                             <>
                                 <Card name={e.nome} 

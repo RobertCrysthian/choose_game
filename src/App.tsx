@@ -12,7 +12,7 @@ function App() {
         <Route path="/" element={<Header/>}>
           <Route path="/" element={<FistPage/>}/>
           <Route path="/form" element={<Form/>}/>
-          <Route path="/ingame/:id" element={<InGame/>}/>
+          <Route path="/ingame" element={<InGame/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
