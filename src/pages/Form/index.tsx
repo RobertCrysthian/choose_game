@@ -24,8 +24,11 @@ export default function Form(){
     }, [])
 
 
-    const submit = () => {
-
+    const submit = (event : any) => {
+        if(video && itemLink.length !== 11){
+            event.preventDefault()
+            alert("Por favor, clique no botão 'video'. ")
+        }else{
         axios.post('http://localhost:8080/itens', {
            nome: itemName,
            link: itemLink, 
@@ -33,7 +36,8 @@ export default function Form(){
         })
         setItemName("")
         setItemLink("")
-        }
+        } 
+    }
 
         const deleteItem = (id :number) =>{
             axios.delete(`http://localhost:8080/itens/${id}`)
@@ -96,7 +100,7 @@ export default function Form(){
                                     <tr>
                                         <td>{e.id}</td>
                                         <td>{e.nome}</td>
-                                        <td>{e.video? e.link : <a href={e.link} target="_blank">Teste</a>}</td>
+                                        <td>{e.video? <a href={`https://www.youtube.com/watch?v=${e.link}`} target="_blank">Clique para ver</a> : <a href={e.link} target="_blank">Clique para ver</a>}</td>
                                         <td>{`${e.video? "Video" : "Imagem"}`}</td>
                                         <td className="editar"><Link to={`/itens/${e.id}`}>Editar</Link></td>
                                         <td><a className="btn_erro" onClick={() => deleteItem(e.id)}>Apagar  </a></td>
