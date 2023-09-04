@@ -87,6 +87,7 @@ export default function Form(){
             <section className='section_list'>
                 <div className="itens_list">
                     <table className="table__">
+                        <thead>
                             <tr>
                                 <td>ID</td>
                                 <td>Nome </td>
@@ -95,9 +96,11 @@ export default function Form(){
                                 <td>Editar</td>
                                 <td>Excluir</td>
                             </tr>
+                         </thead>
+                            <tbody>
                             {data.map((e) => {
                                 return(
-                                    <tr>
+                                    <tr key={e.id}>
                                         <td>{e.id}</td>
                                         <td>{e.nome}</td>
                                         <td>{e.video? <a href={`https://www.youtube.com/watch?v=${e.link}`} target="_blank">Clique para ver</a> : <a href={e.link} target="_blank">Clique para ver</a>}</td>
@@ -107,6 +110,7 @@ export default function Form(){
                                     </tr>
                                 )
                             })}
+                        </tbody>
                     </table>
                 </div>
             </section>
