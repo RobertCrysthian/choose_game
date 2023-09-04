@@ -1,4 +1,5 @@
 
+import { LinkProps } from '@mui/material'
 import './Button.css'
 
 

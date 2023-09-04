@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react'
 import Button from '../../componentes/Button'
 import './Form.css'
 import axios from 'axios'
-import { Button as ButtonMu, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
 import iData from '../../interfaces/iData/iData'
+import { Link } from 'react-router-dom'
+import iFormData from '../../interfaces/iData/iFormName/iFormData'
 
 
 export default function Form(){
@@ -13,15 +14,18 @@ export default function Form(){
     const [itemName, setItemName] = useState('')
     const [itemLink, setItemLink] = useState('')
     const [video, setVideo] = useState(false)
+    const [formName, setFormName] =useState<any | undefined>([])
+
+
 
     useEffect(() => {
         axios.get("http://localhost:8080/itens")
         .then(resposta => setData(resposta.data))
     }, [])
 
-    const submit = (event?: any) => {
-        event.preventDefault()
-        
+
+    const submit = () => {
+
         axios.post('http://localhost:8080/itens', {
            nome: itemName,
            link: itemLink, 
@@ -48,14 +52,14 @@ export default function Form(){
             setVideo(false)
         }
 
-    console.log(video)
-    console.log(itemLink)
+
+
+    
         return(
             <>
             <section className="section_form">
                 <div className="form">
                     <h1>Crie um elemento</h1>
-
                     <form onSubmit={submit} className="form">
                         <label>Nome do item</label>
                         <input value={itemName} placeholder="Insira o nome do item" onChange={e => setItemName(e.target.value)}/>
@@ -84,6 +88,7 @@ export default function Form(){
                                 <td>Nome </td>
                                 <td>Link </td>
                                 <td>Tipo</td>
+                                <td>Editar</td>
                                 <td>Excluir</td>
                             </tr>
                             {data.map((e) => {
@@ -93,6 +98,7 @@ export default function Form(){
                                         <td>{e.nome}</td>
                                         <td>{e.video? e.link : <a href={e.link} target="_blank">Teste</a>}</td>
                                         <td>{`${e.video? "Video" : "Imagem"}`}</td>
+                                        <td className="editar"><Link to={`/itens/${e.id}`}>Editar</Link></td>
                                         <td><a className="btn_erro" onClick={() => deleteItem(e.id)}>Apagar  </a></td>
                                     </tr>
                                 )

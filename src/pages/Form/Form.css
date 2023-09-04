@@ -29,7 +29,14 @@
     height: 25px;
     font-size: 20px;
     font-family: 'Poppins', sans-serif;
+    color:#020202;
+    justify-content: center;
     margin-bottom:15px ;
+}
+
+.form label{
+    color:#d3d3d3;
+    font-family: 'Poppins', sans-serif;
 }
 
 .divs_checkbox{
@@ -38,8 +45,11 @@
     margin: 10px;
 }
 
-.divs_checkbox .a, .b{
+.divs_checkbox .a, .divs_checkbox .b{
     display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .divs_checkbox input{
@@ -85,20 +95,24 @@ th{
 }
 
 .btn_erro{
-    color:rgb(250, 250, 250);
-    background-color: rgb(197, 25, 25);
-    padding: 10px 34%;
-    border-radius: 10px;
-    font-family: 'Poppins', sans-serif;
-    border: 1px solid #360606;
+    color:rgb(238, 21, 21);
 }
 .btn_erro:hover{
     cursor:pointer;
-    background-color: rgb(214, 49, 49);
-    opacity: 0.8;
 }
 
+.editar{
+    color:#1097d6;
+}
 td a{
     color:#ff7c7c;
     text-decoration: none;
+}
+
+.nome_game{
+    background-color:#4F5259;
+    width: 65%;
+    border-radius: 15px;
+    display:flex;
+    flex-direction: column;
 }

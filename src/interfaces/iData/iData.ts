@@ -3,6 +3,4 @@ export default interface iData{
     link: string,
     video: boolean,
     id: number,
-
-    frameborder?: string
 }

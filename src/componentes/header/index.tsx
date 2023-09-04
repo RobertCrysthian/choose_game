@@ -6,7 +6,8 @@ export default function Header(){
         <section>
             <header className="header">
                 <div className="div_logo">
-                    <h1>Logo vai Aqui</h1>
+                    <Link className="link_logo" to="./">Logo vai Aqui</Link>
+
                 </div>
                 <div className="div_botoes">
                     <Link to="./">Home</Link>

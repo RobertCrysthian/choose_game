@@ -19,8 +19,55 @@
     display:flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 10px;
 }
 
 .escondido{
     display: none;
+}
+
+.centralizar_video{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 50px;
+    margin-top: -50px;
+
+}
+
+.div_ultimaImagem{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div_ultimaImagem h1{
+    font-size: 32px;
+    margin: 15px;
+}
+
+.div_ultimaImagem img{
+    width: 70%;
+    margin: 15px;
+}
+
+.div_ultimaImagem iframe{
+    margin: 15px;
+}
+
+.link_menu{
+    text-decoration: none;
+    color:#d3d3d3;
+    font-family: 'Poppins', sans-serif;
+}
+
+.escondido_placar{
+    display:none
+}
+
+.placar{
+    text-align: center;
+    margin: 20px;
+    margin-bottom: -80px;
+    font-size: 22px;
 }
