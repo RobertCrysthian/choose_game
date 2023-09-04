@@ -7,6 +7,8 @@ import InGame from './pages/inGame';
 import Instrucoes from './pages/Instrucoes';
 import SobreODev from './pages/SobreODev';
 import EditarItem from './pages/EditarItem';
+import JogosComunidade from './pages/JogosComunidade';
+import GameEspecifico from './pages/JogosComunidade/GameEspecifico';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path="/instrucoes" element={<Instrucoes/>}/>
           <Route path="/sobreodev" element={<SobreODev/>}/>
           <Route path="/itens/:id" element={<EditarItem/>}/>
+          <Route path="/jogoscomunidade" element={<JogosComunidade/>}/>
+          <Route path="jogoscomunidade/:id" element={<GameEspecifico/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

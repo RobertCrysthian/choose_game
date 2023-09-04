@@ -95,18 +95,28 @@ th{
 }
 
 .btn_erro{
-    color:rgb(238, 21, 21);
+    color:rgb(255, 120, 66);
 }
+
 .btn_erro:hover{
     cursor:pointer;
+    color:rgb(238, 100, 46);
 }
 
 .editar{
-    color:#1097d6;
+    color:#1397d4;
 }
+.editar:hover{
+    color:#0d79ac;
+}
+
 td a{
-    color:#ff7c7c;
+    color:#f1a5a5;
     text-decoration: none;
+}
+
+td a:hover{
+    color:#cc7e7e;
 }
 
 .nome_game{

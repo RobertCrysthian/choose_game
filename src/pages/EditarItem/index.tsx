@@ -35,14 +35,17 @@ export default function EditarItem(){
 
     const submitarForm = (event : any) => {
         event.preventDefault()
-
-        axios.put(`http://localhost:8080/itens/${parametros.id}`, {
-            nome: dadosItem.nome,
-            link: dadosItem.link,
-            video: video
-        })
-        alert("Dados alterados com sucesso")
-        window.location.href="/form"
+        if(video && dadosItem.link.length !== 11){
+            alert("Por favor, clique no botão 'video' para converter o link. ")
+        }
+        else{
+            axios.put(`http://localhost:8080/itens/${parametros.id}`, {
+                nome: dadosItem.nome,
+                link: dadosItem.link,
+                video: video
+            })
+            alert("Dados alterados com sucesso")
+            window.location.href="/form"}
     }
 
     console.log(video)

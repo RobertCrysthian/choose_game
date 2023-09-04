@@ -4,7 +4,6 @@ import './Form.css'
 import axios from 'axios'
 import iData from '../../interfaces/iData/iData'
 import { Link } from 'react-router-dom'
-import iFormData from '../../interfaces/iData/iFormName/iFormData'
 
 
 export default function Form(){
@@ -14,7 +13,6 @@ export default function Form(){
     const [itemName, setItemName] = useState('')
     const [itemLink, setItemLink] = useState('')
     const [video, setVideo] = useState(false)
-    const [formName, setFormName] =useState<any | undefined>([])
 
 
 
@@ -27,7 +25,7 @@ export default function Form(){
     const submit = (event : any) => {
         if(video && itemLink.length !== 11){
             event.preventDefault()
-            alert("Por favor, clique no botão 'video'. ")
+            alert("Por favor, clique no botão 'video' para converter o link. ")
         }else{
         axios.post('http://localhost:8080/itens', {
            nome: itemName,
@@ -105,7 +103,7 @@ export default function Form(){
                                         <td>{e.nome}</td>
                                         <td>{e.video? <a href={`https://www.youtube.com/watch?v=${e.link}`} target="_blank">Clique para ver</a> : <a href={e.link} target="_blank">Clique para ver</a>}</td>
                                         <td>{`${e.video? "Video" : "Imagem"}`}</td>
-                                        <td className="editar"><Link to={`/itens/${e.id}`}>Editar</Link></td>
+                                        <td className="editar"><Link className="editar" to={`/itens/${e.id}`}>Editar</Link></td>
                                         <td><a className="btn_erro" onClick={() => deleteItem(e.id)}>Apagar  </a></td>
                                     </tr>
                                 )

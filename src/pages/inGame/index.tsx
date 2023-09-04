@@ -117,7 +117,7 @@ export default function InGame(){
                                 <div className="div_ultimaImagem">
                                     <h1>Sua escolha é: {array[array.length-1].nome}</h1>
                                     <p>A man of culture, I see</p>
-                                    <img src={array[array.length-1].link}/>
+                                    <img src={array[array.length-1].link} alt="Última imagem selecionada"/>
                                     <Link className="link_menu" to="http://localhost:3000/">Voltar para o menu</Link>
                                 </div>
                             )}

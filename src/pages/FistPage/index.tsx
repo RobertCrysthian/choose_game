@@ -12,6 +12,7 @@ export default function FistPage(){
             <div className="div_links">
                 <Link to="./form">Criar um game</Link>
                 <Link to="./ingame">Jogar</Link>
+                <Link to="./jogoscomunidade">Jogos criados pela comunidade</Link>
                 <Link to="./instrucoes">Instruções</Link>
                 <Link to="./sobreodev">Sobre o dev</Link>
             </div>
