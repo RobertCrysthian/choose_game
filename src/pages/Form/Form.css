@@ -126,3 +126,21 @@ td a:hover{
     display:flex;
     flex-direction: column;
 }
+
+@media ( max-width:600px){
+    .form{
+        width: 98%;
+    }
+
+    .itens_list{
+        width: 98%;
+        margin:4px
+    }
+
+    .table__ tr, .table__ td, .table__ th{
+        font-size: 10px;
+        text-align: center;
+        padding: 15px
+    }
+
+}

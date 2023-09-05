@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import iData from "../../interfaces/iData/iData";
 import { Link } from "react-router-dom";
 
+
+
 export default function InGame(){
 
 
@@ -52,6 +54,7 @@ export default function InGame(){
         setArray([...array, novoItem] )
         setId(id+1)
         setPlacar(placar+1)
+
     }
 
     if(placar === data.length){
@@ -93,10 +96,10 @@ export default function InGame(){
                         }else{
                         return(
                             <>  <div className="centralizar_video">
-                                    <Card name={e.nome} image={e.link} key={e.id}/>
-                                    <div className="div_botao">
-                                        <Button text="Escolher" cor1={true} onClick={() => clickButton(e)}/>
-                                    </div>
+                                        <Card name={e.nome} image={e.link} key={e.id}/>
+                                        <div className="div_botao">
+                                            <Button text="Escolher" cor1={true} onClick={() => clickButton(e)}/>
+                                        </div>
                                 </div>
                             </>
                         )}
@@ -119,6 +122,7 @@ export default function InGame(){
                                     <p>A man of culture, I see</p>
                                     <img src={array[array.length-1].link} alt="Última imagem selecionada"/>
                                     <Link className="link_menu" to="http://localhost:3000/">Voltar para o menu</Link>
+                                    <p>Outras escolhas</p>
                                 </div>
                             )}
                         }

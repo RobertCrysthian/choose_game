@@ -97,12 +97,12 @@ export default function GameEspecifico(){
                         if(escolhas.length-1 === array.length){
                             if(e.video){
                                 return (
-                                    <div className="div_ultimaImagem">
-                                    <h1>Sua escolha é: {array[array.length-1].nome}</h1>
-                                    <p>A man of culture, I see</p>
-                                    <iframe width="560" height="315" src={`https://www.youtube.com/embed/${array[array.length-1].link}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
-                                    <Link className="link_menu" to="http://localhost:3000/">Voltar para o menu</Link>
-                                </div>
+                                        <div className="div_ultimaImagem">
+                                        <h1>Sua escolha é: {array[array.length-1].nome}</h1>
+                                        <p>A man of culture, I see</p>
+                                        <iframe width="560" height="315" src={`https://www.youtube.com/embed/${array[array.length-1].link}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+                                        <Link className="link_menu" to="http://localhost:3000/">Voltar para o menu</Link> 
+                                    </div>
                                 )
                             }else{
                             return (

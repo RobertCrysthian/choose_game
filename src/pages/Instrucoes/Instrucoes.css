@@ -1,6 +1,7 @@
 .section_instrucoes{
     display:flex;
     justify-content: center;
+    text-align: justify;
     margin: 30px;
     margin-top: 50px;
 
@@ -21,17 +22,43 @@
 }
 
 .div_instrucoes h2{
-    font-size: 22px;
+    font-size: 25px;
     margin:5px;
     margin-top:15px
 }
 .div_instrucoes p{
     margin:5px;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .div_instrucoes .link_menu{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 10px;
+    font-size: 22px;
+}
+
+
+@media(max-width:600px){
+    .section_instrucoes{
+        margin:50px 10px 90px 10px
+    }
+    .div_instrucoes{
+        width: 100%;
+        padding: 13px;
+        margin-bottom: 80px;
+    }
+
+    .div_instrucoes h1{
+        font-size: 25px;
+    }
+
+    .div_instrucoes h2{
+        font-size: 18px;
+    }
+    .div_instrucoes p{
+        font-size: 15px;
+        
+    }
 }

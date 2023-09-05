@@ -6,6 +6,7 @@ import iData from '../../interfaces/iData/iData'
 import { Link } from 'react-router-dom'
 
 
+
 export default function Form(){
 
 
@@ -13,6 +14,7 @@ export default function Form(){
     const [itemName, setItemName] = useState('')
     const [itemLink, setItemLink] = useState('')
     const [video, setVideo] = useState(false)
+
 
 
 
@@ -38,11 +40,14 @@ export default function Form(){
     }
 
         const deleteItem = (id :number) =>{
+
             axios.delete(`http://localhost:8080/itens/${id}`)
             .then(() => {
                 const newItens = data.filter(item => item.id !== id)
                 setData([...newItens])
             })
+
+
         }
    
         const adicionarVideo = () => {
