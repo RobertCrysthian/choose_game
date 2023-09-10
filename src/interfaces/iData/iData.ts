@@ -1,6 +1,6 @@
 export default interface iData{
-    nome: string,
-    link: string,
-    video: boolean,
-    id: number,
+    mediaName: string,
+    mediaLink: string,
+    isVideo: boolean,
+    mediaID: number,
 }

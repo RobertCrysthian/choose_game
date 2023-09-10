@@ -22,12 +22,8 @@
     display:flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
     border-radius: 12px;
-}
 
-.section_firstPage a:hover{
-    background-color:#35373b;
 }
 
 .div_links{
@@ -36,21 +32,4 @@
     align-items: center;
     width: 38%;
     
-}
-
-@media ( max-width:600px){
-    .section_firstPage {
-        text-align: center;
-    }
-
-    .section_firstPage h1 {
-        font-size: 23px;
-        margin-top: 3%;
-    }
-
-    .section_firstPage a {
-        width: 300px;
-    }
-
-
 }

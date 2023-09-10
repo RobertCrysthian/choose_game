@@ -37,9 +37,3 @@
 .cor3:hover{
     background-color: rgb(41, 99, 146);
 }
-
-@media(max-width: 600px){
-    .button{
-        width: 300px;
-    }
-}
