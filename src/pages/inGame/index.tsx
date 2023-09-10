@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import iData from "../../interfaces/iData/iData";
 import { Link } from "react-router-dom";
 
+
+
 export default function InGame(){
 
 
@@ -26,13 +28,13 @@ export default function InGame(){
 
 
     useEffect(() => {
-        axios.get("http://localhost:8080/media/listall")
+        axios.get("http://localhost:8080/itens")
         .then(response => setData(response.data))
     }, [])
 
     
     useEffect(() => {
-        axios.get("http://localhost:8080/media/listall")
+        axios.get("http://localhost:8080/itens")
         .then(response => setId(response.data.length+1))
     }, [])
 
@@ -46,12 +48,13 @@ export default function InGame(){
             mediaName: e.mediaName,
             mediaLink: e.mediaLink,
             isVideo: e.isVideo,
-            mediaID:id
+            mediaID: id
         }
 
         setArray([...array, novoItem] )
         setId(id+1)
         setPlacar(placar+1)
+
     }
 
     if(placar === data.length){
@@ -93,10 +96,10 @@ export default function InGame(){
                         }else{
                         return(
                             <>  <div className="centralizar_video">
-                                    <Card name={e.mediaName} image={e.mediaLink} key={e.mediaID}/>
-                                    <div className="div_botao">
-                                        <Button text="Escolher" cor1={true} onClick={() => clickButton(e)}/>
-                                    </div>
+                                        <Card name={e.mediaName} image={e.mediaLink} key={e.mediaID}/>
+                                        <div className="div_botao">
+                                            <Button text="Escolher" cor1={true} onClick={() => clickButton(e)}/>
+                                        </div>
                                 </div>
                             </>
                         )}
@@ -119,6 +122,7 @@ export default function InGame(){
                                     <p>A man of culture, I see</p>
                                     <img src={array[array.length-1].mediaLink} alt="Última imagem selecionada"/>
                                     <Link className="link_menu" to="http://localhost:3000/">Voltar para o menu</Link>
+                                    <p>Outras escolhas</p>
                                 </div>
                             )}
                         }
@@ -138,9 +142,9 @@ export default function InGame(){
                         return(
                             <>
                                 <div className="centralizar_video">
-                                    <Card name={e.mediaName} 
-                                        image={e.mediaLink} 
-                                        key={e.mediaID} 
+                                    <Card name={e.nome} 
+                                        image={e.link} 
+                                        key={e.id} 
                                         className={`${escondido? "escondido" : ""}`}
                                     />
                                     <div className={`${escondido? "escondido" : ""} div_botao`}>

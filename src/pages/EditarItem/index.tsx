@@ -11,7 +11,7 @@ export default function EditarItem(){
 
     const [dadosItem, setDadosItem] = useState<iData[] | any> ([])
 
-    useEffect(() => {
+    useEffect(() => { //Não implementado ainda na API
         axios.get(`http://localhost:8080/itens/${parametros.id}`)
         .then(resposta => {setDadosItem(resposta.data)})
     }, [])

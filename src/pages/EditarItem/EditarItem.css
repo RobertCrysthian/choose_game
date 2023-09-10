@@ -43,3 +43,13 @@
     align-items: center;
     justify-content: center;
 }
+
+@media (max-width:600px) {
+    .div_editarItem{
+        width: 95%;
+        text-align: center;
+    }
+    .div_editarItem input{
+        width: 100%;
+    }
+}

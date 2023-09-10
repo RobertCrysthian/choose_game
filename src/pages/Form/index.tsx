@@ -4,7 +4,8 @@ import './Form.css'
 import axios from 'axios'
 import iData from '../../interfaces/iData/iData'
 import { Link } from 'react-router-dom'
-var idkkkk = 1;
+
+
 
 export default function Form(){
 
@@ -13,12 +14,12 @@ export default function Form(){
     const [itemName, setItemName] = useState('')
     const [itemLink, setItemLink] = useState('')
     const [video, setVideo] = useState(false)
-    const [id2, setId2] = useState(2)
+
 
 
 
     useEffect(() => {
-        axios.get("http://localhost:8080/media/listall")
+        axios.get("http://localhost:8080/itens")
         .then(resposta => setData(resposta.data))
     }, [])
 
@@ -28,12 +29,10 @@ export default function Form(){
             event.preventDefault()
             alert("Por favor, clique no botão 'video' para converter o link. ")
         }else{
-            event.preventDefault()
-        axios.post(`http://localhost:8080/media/new?mediaName=${itemName}&mediaLink=${itemLink}&isVideo=${video}`, {
-            
-           /*nome: itemName,
+        axios.post('http://localhost:8080/itens', {
+           nome: itemName,
            link: itemLink, 
-           video: video*/
+           video: video
         })
         setItemName("")
         setItemLink("")
@@ -41,13 +40,15 @@ export default function Form(){
     }
 
         const deleteItem = (id :number) =>{
-            axios.delete(`http://localhost:8080/media/remove?mediaID=${id}`)
+
+            axios.delete(`http://localhost:8080/itens/${id}`)
             .then(() => {
                 const newItens = data.filter(item => item.mediaID !== id)
                 setData([...newItens])
             })
+
+
         }
-     
    
         const adicionarVideo = () => {
             setVideo(true)
@@ -59,7 +60,8 @@ export default function Form(){
         }
 
 
-        console.log(data)
+
+    
         return(
             <>
             <section className="section_form">
@@ -104,7 +106,7 @@ export default function Form(){
                                     <tr key={e.mediaID}>
                                         <td>{e.mediaID}</td>
                                         <td>{e.mediaName}</td>
-                                        <td>{e.isVideo? <a href={`https://www.youtube.com/watch?v=${e.mediaLink}`} target="_blank">Clique para ver</a> : <a href={e.mediaLink} target="_blank">Clique para ver</a>}</td>
+                                        <td>{e.isVideo ? <a href={`https://www.youtube.com/watch?v=${e.mediaLink}`} target="_blank">Clique para ver</a> : <a href={e.mediaLink} target="_blank">Clique para ver</a>}</td>
                                         <td>{`${e.isVideo? "Video" : "Imagem"}`}</td>
                                         <td className="editar"><Link className="editar" to={`/itens/${e.mediaID}`}>Editar</Link></td>
                                         <td><a className="btn_erro" onClick={() => deleteItem(e.mediaID)}>Apagar  </a></td>

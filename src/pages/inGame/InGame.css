@@ -71,3 +71,25 @@
     margin-bottom: -80px;
     font-size: 22px;
 }
+
+@media ( max-width:600px){
+    .centralizar_video{
+        margin:0px;
+
+    }
+
+    .div_elementos_tela{
+        display:flex;
+        flex-direction: column;
+    }
+
+    .div_botao{
+        align-items: center;
+        margin-bottom: 50px;
+    }
+
+    .placar{
+        margin-bottom: 50px;
+    }
+
+}
