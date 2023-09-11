@@ -70,7 +70,6 @@
     padding: 15px;
     display:flex;
     justify-content: center;
-    
 }
 
 tr{
@@ -142,5 +141,4 @@ td a:hover{
         text-align: center;
         padding: 15px
     }
-
 }

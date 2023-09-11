@@ -1,29 +1,27 @@
-import { useParams } from "react-router-dom"
-import "./EditarItem.css"
-import axios from "axios"
-import { useEffect, useState } from "react"
-import iData from "../../interfaces/iData/iData"
-import Button from "../../componentes/Button"
+import { useParams } from "react-router-dom";
+import "./EditarItem.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import iData from "../../interfaces/iData/iData";
+import Button from "../../componentes/Button";
 
-export default function EditarItem(){
+export default function EditarItem() {
 
-    const parametros = useParams()
+    const parametros = useParams();
+    const [dadosItem, setDadosItem] = useState<iData[] | any> ([]);
 
-    const [dadosItem, setDadosItem] = useState<iData[] | any> ([])
-
-    useEffect(() => { //Não implementado ainda na API
+    useEffect(() => { //Ainda não implementado na API
         axios.get(`http://localhost:8080/itens/${parametros.id}`)
         .then(resposta => {setDadosItem(resposta.data)})
     }, [])
 
-
-    const [video, setVideo] = useState(false)
+    const [video, setVideo] = useState(false);
 
     const setarImagem = () => {
-        setVideo(false)
+        setVideo(false);
     }
     const setarVideo = () => {
-        setVideo(true)
+        setVideo(true);
         setDadosItem({
             nome: dadosItem.nome,
             link: dadosItem.link.slice(-11),
@@ -31,14 +29,11 @@ export default function EditarItem(){
         })
     }
 
-
-
-    const submitarForm = (event : any) => {
-        event.preventDefault()
-        if(video && dadosItem.link.length !== 11){
+    const submitarForm = (event:any) => {
+        event.preventDefault();
+        if(video && dadosItem.link.length !== 11) {
             alert("Por favor, clique no botão 'video' para converter o link. ")
-        }
-        else{
+        } else {
             axios.put(`http://localhost:8080/itens/${parametros.id}`, {
                 nome: dadosItem.nome,
                 link: dadosItem.link,
@@ -47,8 +42,6 @@ export default function EditarItem(){
             alert("Dados alterados com sucesso")
             window.location.href="/form"}
     }
-
-    console.log(video)
 
     return(
         <section className="section_editarItem">

@@ -6,38 +6,25 @@ import { useEffect, useState } from "react";
 import iData from "../../interfaces/iData/iData";
 import { Link } from "react-router-dom";
 
-
-
 export default function InGame(){
-
-
 
     const [valor1, setValor1] = useState(1);
     const [valor2, setValor2] = useState(2);
-
     const [placar, setPlacar] = useState(1)    
-
-    
     var escondido = true
     var esconderPlacar = false
-
     const [data, setData] = useState([])
-
     const [array, setArray] = useState<iData[]>([])
-
-
-
+    
     useEffect(() => {
-        axios.get("http://localhost:8080/itens")
+        axios.get("http://localhost:8080/media/listall")
         .then(response => setData(response.data))
     }, [])
 
-    
     useEffect(() => {
-        axios.get("http://localhost:8080/itens")
+        axios.get("http://localhost:8080/media/listall")
         .then(response => setId(response.data.length+1))
     }, [])
-
 
     const [id, setId] = useState(0)
 
@@ -54,7 +41,6 @@ export default function InGame(){
         setArray([...array, novoItem] )
         setId(id+1)
         setPlacar(placar+1)
-
     }
 
     if(placar === data.length){
@@ -70,12 +56,10 @@ export default function InGame(){
         return e.mediaID === valor1 || e.mediaID === valor2
     })
 
-    console.log(array)
-
     if(valor2 > data.length){
         escondido=false
     }
-    console.log(elementosTela)
+
     return(
         <section>
             <h1 className={`${esconderPlacar? "escondido_placar" : ""} placar`}>{`Rodada ${placar} / ${data.length-1}`}</h1>
@@ -138,14 +122,13 @@ export default function InGame(){
                                 </>
                             )
                         }
-
                         return(
                             <>
                                 <div className="centralizar_video">
-                                    <Card name={e.nome} 
-                                        image={e.link} 
-                                        key={e.id} 
-                                        className={`${escondido? "escondido" : ""}`}
+                                <Card name={e.mediaName} 
+                                      image={e.mediaLink} 
+                                      key={e.mediaID}
+                                      className={`${escondido? "escondido" : ""}`}
                                     />
                                     <div className={`${escondido? "escondido" : ""} div_botao`}>
                                         <Button 
@@ -164,5 +147,3 @@ export default function InGame(){
         </section>
     )
 }
-
-

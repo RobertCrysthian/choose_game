@@ -1,67 +1,50 @@
-import { useEffect, useState } from 'react'
-import Button from '../../componentes/Button'
-import './Form.css'
-import axios from 'axios'
-import iData from '../../interfaces/iData/iData'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import Button from '../../componentes/Button';
+import './Form.css';
+import axios from 'axios';
+import iData from '../../interfaces/iData/iData';
+import { Link } from 'react-router-dom';
 
+export default function Form() {
 
-
-export default function Form(){
-
-
-    const [data, setData] = useState<iData[]>([])
-    const [itemName, setItemName] = useState('')
-    const [itemLink, setItemLink] = useState('')
-    const [video, setVideo] = useState(false)
-
-
-
+    const [data, setData] = useState<iData[]>([]);
+    const [itemName, setItemName] = useState('');
+    const [itemLink, setItemLink] = useState('');
+    const [video, setVideo] = useState(false);
 
     useEffect(() => {
-        axios.get("http://localhost:8080/itens")
+        axios.get("http://localhost:8080/media/listall")
         .then(resposta => setData(resposta.data))
     }, [])
 
-
-    const submit = (event : any) => {
+    const submit = (event:any) => {
         if(video && itemLink.length !== 11){
             event.preventDefault()
             alert("Por favor, clique no botão 'video' para converter o link. ")
         }else{
-        axios.post('http://localhost:8080/itens', {
-           nome: itemName,
-           link: itemLink, 
-           video: video
-        })
+        axios.post(`http://localhost:8080/media/new?mediaName=${itemName}&mediaLink=${itemLink}&isVideo=${video}`, {})
         setItemName("")
         setItemLink("")
         } 
     }
 
-        const deleteItem = (id :number) =>{
-
-            axios.delete(`http://localhost:8080/itens/${id}`)
+        const deleteItem = (id:number) =>{
+            axios.delete(`http://localhost:8080/media/remove?mediaID=${id}`)
             .then(() => {
                 const newItens = data.filter(item => item.mediaID !== id)
                 setData([...newItens])
             })
-
-
         }
    
         const adicionarVideo = () => {
             setVideo(true)
             setItemLink(itemLink.slice(-11))
+        }
 
-    }
         const adicionarImagem = () => {
             setVideo(false)
         }
 
-
-
-    
         return(
             <>
             <section className="section_form">
@@ -86,7 +69,6 @@ export default function Form(){
                     </form>
                 </div>
             </section>
-
             <section className='section_list'>
                 <div className="itens_list">
                     <table className="table__">
