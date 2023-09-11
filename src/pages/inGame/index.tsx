@@ -60,6 +60,8 @@ export default function InGame(){
         escondido=false
     }
 
+    console.log(array)
+
     return(
         <section>
             <h1 className={`${esconderPlacar? "escondido_placar" : ""} placar`}>{`Rodada ${placar} / ${data.length-1}`}</h1>
@@ -70,6 +72,7 @@ export default function InGame(){
                         if(e.isVideo === true){
                             return(
                                 <>  <div className="centralizar_video">
+                                        <h1>{e.mediaName}</h1>
                                         <iframe width="560" height="315" src={`https://www.youtube.com/embed/${e.mediaLink}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
                                         <div className="div_botao">
                                             <Button cor1={true} text="Escolher" onClick={() => clickButton(e)}/>
@@ -90,7 +93,7 @@ export default function InGame(){
                     })}
                     {elementosTela2.map((e: any) => {
                         if(data.length-1 === array.length){
-                            if(e.video){
+                            if(e.isVideo){
                                 return (
                                     <div className="div_ultimaImagem">
                                     <h1>Sua escolha é: {array[array.length-1].mediaName}</h1>
@@ -110,11 +113,11 @@ export default function InGame(){
                                 </div>
                             )}
                         }
-                        if (e.video === true) {
+                        if (e.isVideo === true) {
                             return (
                                 <>
                                     <div className="centralizar_video">
-                                        <iframe width="560" height="315" src={`https://www.youtube.com/embed/${e.link}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+                                        <iframe width="560" height="315" src={`https://www.youtube.com/embed/${e.mediaLink}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
                                         <div className="div_botao">
                                             <Button text="Escolher" cor1={true} onClick={() => clickButton(e)} />
                                         </div>
