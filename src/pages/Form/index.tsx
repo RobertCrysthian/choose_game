@@ -74,7 +74,6 @@ export default function Form() {
                     <table className="table__">
                         <thead>
                             <tr>
-                                <td>ID</td>
                                 <td>Nome </td>
                                 <td>Link </td>
                                 <td>Tipo</td>
@@ -86,12 +85,11 @@ export default function Form() {
                             {data.map((e) => {
                                 return(
                                     <tr key={e.mediaID}>
-                                        <td>{e.mediaID}</td>
                                         <td>{e.mediaName}</td>
                                         <td>{e.isVideo ? <a href={`https://www.youtube.com/watch?v=${e.mediaLink}`} target="_blank" rel="noreferrer">Clique para ver</a> : <a href={e.mediaLink} target="_blank" rel="noreferrer">Clique para ver</a>}</td>
                                         <td>{`${e.isVideo? "Video" : "Imagem"}`}</td>
                                         <td className="editar"><Link className="editar" to={`/itens/${e.mediaID}`}>Editar</Link></td>
-                                        <td><a className="btn_erro" onClick={() => deleteItem(e.mediaID)}>Apagar  </a></td>
+                                        <td><button className="btn_erro" onClick={() => deleteItem(e.mediaID)}>Apagar  </button></td>
                                     </tr>
                                 )
                             })}

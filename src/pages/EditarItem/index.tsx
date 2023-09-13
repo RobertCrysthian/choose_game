@@ -13,7 +13,7 @@ export default function EditarItem() {
     useEffect(() => { //Ainda não implementado na API
         axios.get(`http://localhost:8080/itens/${parametros.id}`)
         .then(resposta => {setDadosItem(resposta.data)})
-    }, [])
+    }, [parametros.id])
 
     const [video, setVideo] = useState(false);
 

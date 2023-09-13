@@ -47,7 +47,7 @@ table {
     border-spacing: 0;
 }
 
-p, h1, h2, h3, label, a{
+p, h1, h2, h3, label, a, button{
   color: var(--cor-texto);
   font-family: 'Poppins', sans-serif;
 }

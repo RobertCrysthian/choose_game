@@ -15,10 +15,6 @@ export default function GameEspecifico(){
         let escolhas:any = escolha[a]
 
 
-
-
-
-
     const [valor1, setValor1] = useState(1);
     const [valor2, setValor2] = useState(2);
 
@@ -125,13 +121,13 @@ export default function GameEspecifico(){
                                 </>
                             )
                         }
-
+                        else{
                         return(
                             <>
                                 <div className="centralizar_video">
-                                    <Card name={e.nome} 
-                                        image={e.link} 
-                                        key={e.id} 
+                                    <Card name={e.mediaName} 
+                                        image={e.mediaLink} 
+                                        key={e.mediaID} 
                                         className={`${escondido? "escondido" : ""}`}
                                     />
                                     <div className={`${escondido? "escondido" : ""} div_botao`}>
@@ -145,14 +141,10 @@ export default function GameEspecifico(){
                                 </div>
                             </>
                         )
-                    })}
+                    }}
+                    )}
                 </div>
-
-
-                    
             </div>
         </section>
     )
 }
-
-
