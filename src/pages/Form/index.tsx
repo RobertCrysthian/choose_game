@@ -88,7 +88,7 @@ export default function Form() {
                                     <tr key={e.mediaID}>
                                         <td>{e.mediaID}</td>
                                         <td>{e.mediaName}</td>
-                                        <td>{e.isVideo ? <a href={`https://www.youtube.com/watch?v=${e.mediaLink}`} target="_blank">Clique para ver</a> : <a href={e.mediaLink} target="_blank">Clique para ver</a>}</td>
+                                        <td>{e.isVideo ? <a href={`https://www.youtube.com/watch?v=${e.mediaLink}`} target="_blank" rel="noreferrer">Clique para ver</a> : <a href={e.mediaLink} target="_blank" rel="noreferrer">Clique para ver</a>}</td>
                                         <td>{`${e.isVideo? "Video" : "Imagem"}`}</td>
                                         <td className="editar"><Link className="editar" to={`/itens/${e.mediaID}`}>Editar</Link></td>
                                         <td><a className="btn_erro" onClick={() => deleteItem(e.mediaID)}>Apagar  </a></td>

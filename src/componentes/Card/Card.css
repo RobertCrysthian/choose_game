@@ -1,3 +1,5 @@
+@import '../../styles/styles.css';
+
 .section_card{
     display:flex;
     flex-direction: column;
@@ -5,11 +7,11 @@
 }
 
 .card{
-    background-color: rgb(207, 207, 207);
+    background-color: var(--cor-fundo-card);
     width: 550px;
     padding-top: 20px;
     height: 440px;
-    border-radius: 15px;
+    border-radius: 7px;
     display:flex;
     justify-content: center;
     margin-bottom: 30px;
@@ -18,8 +20,8 @@
 .card_background{
     width: 500px;
     height: 400px;
-    border-radius: 15px;
-    background-color: rgb(110, 110, 110);
+    border-radius: 0px;
+    background-color: var(--cor-card);
     display:flex;
     flex-direction: column;
     align-items: center;

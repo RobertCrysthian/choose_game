@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;700&family=Shadows+Into+Light&display=swap');
-
+@import './styles/styles.css';
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -28,7 +28,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
     line-height: 1;
-    background-color: #0D0D0D;
+    background-color: var(--cor-fundo);
     height: 100vh;
 }
 ol, ul {
@@ -48,7 +48,7 @@ table {
 }
 
 p, h1, h2, h3, label, a{
-  color:#d3d3d3;
+  color: var(--cor-texto);
   font-family: 'Poppins', sans-serif;
 }
 

@@ -1,5 +1,7 @@
+@import '../../styles/styles.css';
+
 .header {
-    background-color: #4F5259;
+    background-color: var(--cor-cabecalho);
     height: 80px;
     display: flex;
     align-items: center;
@@ -13,7 +15,7 @@
 .link_logo{
     text-decoration: none;
     font-size: 32px;
-    color:#d3d3d3;
+    color: var(--cor-texto);
     font-family: 'Poppins', sans-serif;
 }
 
@@ -29,9 +31,9 @@
 .div_botoes a{
     text-decoration: none;
     font-size: 25px;
-    color:#F2F2F2;
+    color:var(--cor-texto);
     padding:20px 30px;
-    border:1px solid #4F5259;
+    border:1px solid var(--cor-cabecalho);
     font-family: 'Poppins', sans-serif;
 }
 
@@ -62,7 +64,7 @@ html, body {
   align-items: center;
   justify-content: space-between;
   background-color: #00BAF0;
-  background-color:#4F5259;
+  background-color:var(--cor-cabecalho);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #FFF;
   height: 50px;
@@ -112,8 +114,6 @@ html, body {
   content: '';
   margin-top: -8px;
 }
-.menu{
-}
 
 .menu a {
   text-decoration: none;
@@ -121,7 +121,7 @@ html, body {
 }
 
 .menu a:hover{
-  color:#f2f2f2
+  color:var(--cor-texto)
 }
 
 .menu-button::after {
@@ -181,7 +181,7 @@ html, body {
     padding: 0.5em 0;
     width: 100%;
     color: white;
-    background-color: #4F5259;
+    background-color: var(--cor-cabecalho);
   }
 
   .menu a {

@@ -1,25 +1,27 @@
+@import '../../styles/styles.css';
+
 .button{
     padding: 15px 85px;
     font-family: 'Poppins', sans-serif;
     font-size: 17px;
     border-radius: 15px;
     border:none;
-    background-color: #0D0D0D;
-    color:#F2F2F2;
+    background-color: var(--cor-fundo);
+    color:var(--cor-texto);
 }
 
 .button:hover{
     cursor: pointer;
-    background-color: #1d1d1d;
+    background-color: var(--cor-fundo2);
 }
 
 .cor1{
-    background-color: #4F5259;
-    color:#F2F2F2
+    background-color: var(--cor-primaria);
+    color:var(--cor-texto)
 }
 
 .cor1:hover{
-    background-color: #35373b;
+    background-color: var(--cor-primaria-hover);
 }
 
 .cor2{

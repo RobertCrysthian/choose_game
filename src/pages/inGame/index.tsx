@@ -5,12 +5,13 @@ import './InGame.css'
 import { useEffect, useState } from "react";
 import iData from "../../interfaces/iData/iData";
 import { Link } from "react-router-dom";
+import CardVideo from "../../componentes/CardVideo";
 
 export default function InGame(){
 
     const [valor1, setValor1] = useState(1);
     const [valor2, setValor2] = useState(2);
-    const [placar, setPlacar] = useState(1)    
+    const [placar, setPlacar] = useState(1);    
     var escondido = true
     var esconderPlacar = false
     const [data, setData] = useState([])
@@ -72,8 +73,7 @@ export default function InGame(){
                         if(e.isVideo === true){
                             return(
                                 <>  <div className="centralizar_video">
-                                        <h1>{e.mediaName}</h1>
-                                        <iframe width="560" height="315" src={`https://www.youtube.com/embed/${e.mediaLink}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+                                        <CardVideo name={e.mediaName} link={e.mediaLink} />
                                         <div className="div_botao">
                                             <Button cor1={true} text="Escolher" onClick={() => clickButton(e)}/>
                                         </div>
@@ -109,7 +109,6 @@ export default function InGame(){
                                     <p>A man of culture, I see</p>
                                     <img src={array[array.length-1].mediaLink} alt="Última imagem selecionada"/>
                                     <Link className="link_menu" to="http://localhost:3000/">Voltar para o menu</Link>
-                                    <p>Outras escolhas</p>
                                 </div>
                             )}
                         }
@@ -117,7 +116,7 @@ export default function InGame(){
                             return (
                                 <>
                                     <div className="centralizar_video">
-                                        <iframe width="560" height="315" src={`https://www.youtube.com/embed/${e.mediaLink}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+                                    <CardVideo name={e.mediaName} link={e.mediaLink} />
                                         <div className="div_botao">
                                             <Button text="Escolher" cor1={true} onClick={() => clickButton(e)} />
                                         </div>

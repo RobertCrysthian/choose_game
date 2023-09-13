@@ -1,6 +1,5 @@
-import axios from "axios";
 import './GameEspecifico.css'
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import iData from "../../../interfaces/iData/iData";
 import Button from "../../../componentes/Button";
