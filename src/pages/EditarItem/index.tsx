@@ -1,56 +1,55 @@
-import { useParams } from "react-router-dom";
-import "./EditarItem.css";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import iData from "../../interfaces/iData/iData";
-import Button from "../../componentes/Button";
+import { useParams } from "react-router-dom"
+import "./EditarItem.css"
+import axios from "axios"
+import { useEffect, useState } from "react"
+import iData from "../../interfaces/iData/iData"
+import Button from "../../componentes/Button"
 
-export default function EditarItem() {
+export default function EditarItem(){
 
-    const parametros = useParams();
-    const [dadosItem, setDadosItem] = useState<iData[] | any> ([]);
+    const parametros = useParams()
 
-    useEffect(() => { //Ainda não implementado na API
-        axios.get(`http://localhost:8080/media/id?mediaID=${parametros.id}`)
-        .then(resposta => {setDadosItem(resposta.data[0])})
-    }, [parametros.id])
+    const [dadosItem, setDadosItem] = useState<iData[] | any> ([])
+
+    useEffect(() => {
+        axios.get(`http://localhost:8080/itens/${parametros.id}`)
+        .then(resposta => {setDadosItem(resposta.data)})
+    }, [])
 
 
-    //http://localhost:8080/media/new?mediaName=${itemName}&mediaLink=${itemLink}&isVideo=${video}
-
-    const [video, setVideo] = useState(false);
-
-    const setarVideo = () => {
-        setDadosItem({
-            mediaName: dadosItem.mediaName,
-            mediaLink: dadosItem.mediaLink.slice(-11),
-            isVideo: video
-        })
-        setVideo(true);
-    }
+    const [video, setVideo] = useState(false)
 
     const setarImagem = () => {
-        setDadosItem({
-            mediaName: dadosItem.mediaName,
-            mediaLink: dadosItem.mediaLink.slice(-11),
-            isVideo: video
-        })
-        setVideo(false);
+        setVideo(false)
     }
-    
-    const submitarForm = (event:any) => {
-        event.preventDefault();
-        if(video && dadosItem.mediaLink.length !== 11) {
+    const setarVideo = () => {
+        setVideo(true)
+        setDadosItem({
+            nome: dadosItem.nome,
+            link: dadosItem.link.slice(-11),
+            video: dadosItem.video
+        })
+    }
+
+
+
+    const submitarForm = (event : any) => {
+        event.preventDefault()
+        if(video && dadosItem.link.length !== 11){
             alert("Por favor, clique no botão 'video' para converter o link. ")
-        } else {
-            axios.put(`http://localhost:8080/media/edit?mediaID=${parametros.id}&newMediaName=${dadosItem.mediaName}&newMediaLink=${dadosItem.mediaLink}&newMediaVideo=${false}/`)
-            alert("Dados alterados com sucesso")
-            window.location.href="/form"
         }
+        else{
+            axios.put(`http://localhost:8080/itens/${parametros.id}`, {
+                nome: dadosItem.nome,
+                link: dadosItem.link,
+                video: video
+            })
+            alert("Dados alterados com sucesso")
+            window.location.href="/form"}
     }
 
     console.log(video)
-    console.log(dadosItem)
+
     return(
         <section className="section_editarItem">
             <div className="div_editarItem">
@@ -59,22 +58,22 @@ export default function EditarItem() {
                     <label>Nome do item</label>
                     <input 
                         type="text"
-                        value={dadosItem.mediaName}
+                        value={dadosItem.nome}
                         required={true}
                         onChange={(e) => setDadosItem({
-                            mediaName: e.target.value,
-                            mediaLink: dadosItem.mediaLink,
-                            isVideo: video
+                            nome: e.target.value,
+                            link: dadosItem.link,
+                            video: dadosItem.video
                         })}
                     ></input>
                     <label>Link do item</label>
                     <input 
-                        value={dadosItem.mediaLink}
+                        value={dadosItem.link}
                         required={true}
                         onChange={(e) => setDadosItem({
-                            mediaName: dadosItem.mediaName,
-                            mediaLink: e.target.value,
-                            isVideo: video
+                            nome: dadosItem.nome,
+                            link: e.target.value,
+                            video: dadosItem.video
                         })}
                     ></input>
                     <div className="a">

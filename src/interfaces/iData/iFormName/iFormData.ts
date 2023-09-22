@@ -1,3 +1,3 @@
-export default interface iFormData {
+export default interface iFormData{
     nome: string | any
 }

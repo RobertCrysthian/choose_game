@@ -1,6 +1,3 @@
-@import '../../styles/styles.css';
-
-
 .section_firstPage{
     display:flex;
     flex-direction: column;
@@ -17,8 +14,8 @@
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
     font-size:20px;
-    color:var(cor-texto);
-    background-color:var(--cor-primaria);
+    color:#F2F2F2;
+    background-color:#4F5259;
     width: 100%;
     height: 50px;
     margin: 15px 5%;
@@ -30,7 +27,7 @@
 }
 
 .section_firstPage a:hover{
-    background-color:var(--cor-primaria-hover);
+    background-color:#35373b;
 }
 
 .div_links{
@@ -54,4 +51,6 @@
     .section_firstPage a {
         width: 300px;
     }
+
+
 }

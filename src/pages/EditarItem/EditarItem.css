@@ -31,6 +31,7 @@
     margin-bottom:15px ;
 }
 
+
 .div_editarItem label{
     padding: 10px;
     font-size: 20px;
@@ -48,7 +49,6 @@
         width: 95%;
         text-align: center;
     }
-    
     .div_editarItem input{
         width: 100%;
     }
