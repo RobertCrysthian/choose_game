@@ -11,38 +11,46 @@ export default function EditarItem() {
     const [dadosItem, setDadosItem] = useState<iData[] | any> ([]);
 
     useEffect(() => { //Ainda não implementado na API
-        axios.get(`http://localhost:8080/itens/${parametros.id}`)
-        .then(resposta => {setDadosItem(resposta.data)})
+        axios.get(`http://localhost:8080/media/id?mediaID=${parametros.id}`)
+        .then(resposta => {setDadosItem(resposta.data[0])})
     }, [parametros.id])
+
+
+    //http://localhost:8080/media/new?mediaName=${itemName}&mediaLink=${itemLink}&isVideo=${video}
 
     const [video, setVideo] = useState(false);
 
+    const setarVideo = () => {
+        setDadosItem({
+            mediaName: dadosItem.mediaName,
+            mediaLink: dadosItem.mediaLink.slice(-11),
+            isVideo: video
+        })
+        setVideo(true);
+    }
+
     const setarImagem = () => {
+        setDadosItem({
+            mediaName: dadosItem.mediaName,
+            mediaLink: dadosItem.mediaLink.slice(-11),
+            isVideo: video
+        })
         setVideo(false);
     }
-    const setarVideo = () => {
-        setVideo(true);
-        setDadosItem({
-            nome: dadosItem.nome,
-            link: dadosItem.link.slice(-11),
-            video: dadosItem.video
-        })
-    }
-
+    
     const submitarForm = (event:any) => {
         event.preventDefault();
-        if(video && dadosItem.link.length !== 11) {
+        if(video && dadosItem.mediaLink.length !== 11) {
             alert("Por favor, clique no botão 'video' para converter o link. ")
         } else {
-            axios.put(`http://localhost:8080/itens/${parametros.id}`, {
-                nome: dadosItem.nome,
-                link: dadosItem.link,
-                video: video
-            })
+            axios.put(`http://localhost:8080/media/edit?mediaID=${parametros.id}&newMediaName=${dadosItem.mediaName}&newMediaLink=${dadosItem.mediaLink}&newMediaVideo=${false}/`)
             alert("Dados alterados com sucesso")
-            window.location.href="/form"}
+            window.location.href="/form"
+        }
     }
 
+    console.log(video)
+    console.log(dadosItem)
     return(
         <section className="section_editarItem">
             <div className="div_editarItem">
@@ -51,22 +59,22 @@ export default function EditarItem() {
                     <label>Nome do item</label>
                     <input 
                         type="text"
-                        value={dadosItem.nome}
+                        value={dadosItem.mediaName}
                         required={true}
                         onChange={(e) => setDadosItem({
-                            nome: e.target.value,
-                            link: dadosItem.link,
-                            video: dadosItem.video
+                            mediaName: e.target.value,
+                            mediaLink: dadosItem.mediaLink,
+                            isVideo: video
                         })}
                     ></input>
                     <label>Link do item</label>
                     <input 
-                        value={dadosItem.link}
+                        value={dadosItem.mediaLink}
                         required={true}
                         onChange={(e) => setDadosItem({
-                            nome: dadosItem.nome,
-                            link: e.target.value,
-                            video: dadosItem.video
+                            mediaName: dadosItem.mediaName,
+                            mediaLink: e.target.value,
+                            isVideo: video
                         })}
                     ></input>
                     <div className="a">

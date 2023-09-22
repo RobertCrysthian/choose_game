@@ -28,7 +28,8 @@ export default function Form() {
         } 
     }
 
-        const deleteItem = (id:number) =>{
+        const deleteItem = (id:number) =>{       
+            window.location. reload()
             axios.delete(`http://localhost:8080/media/remove?mediaID=${id}`)
             .then(() => {
                 const newItens = data.filter(item => item.mediaID !== id)
@@ -45,6 +46,8 @@ export default function Form() {
             setVideo(false)
         }
 
+        console.log(data);
+
         return(
             <>
             <section className="section_form">
@@ -58,11 +61,11 @@ export default function Form() {
                         <div className="divs_checkbox">
                             <div className="a">
                                 <label>Video</label>
-                                <input type="radio" name="ok" onClick={adicionarVideo}></input>
+                                <input type="radio" name="ok" required={true} onClick={adicionarVideo}></input>
                             </div>
                             <div className="b">
                                 <label>Imagem</label>
-                                <input type="radio" name="ok" onClick={adicionarImagem}></input>
+                                <input type="radio" name="ok" required={true} onClick={adicionarImagem}></input>
                             </div>
                         </div>
                         <Button text="Enviar"/>
