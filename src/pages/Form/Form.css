@@ -1,3 +1,6 @@
+@import '../../styles/styles.css';
+
+
 .section_form{
     display:flex;
     justify-content: center;
@@ -5,7 +8,7 @@
 }
 
 .form{
-    background-color: #4F5259;
+    background-color: var(--cor-primaria);
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -26,16 +29,15 @@
 
 .form input{
     width: 80%;
-    height: 25px;
+    height: 28px;
     font-size: 20px;
     font-family: 'Poppins', sans-serif;
-    color:#020202;
     justify-content: center;
     margin-bottom:15px ;
 }
 
 .form label{
-    color:#d3d3d3;
+    color:var(cor-texto);
     font-family: 'Poppins', sans-serif;
 }
 
@@ -63,18 +65,17 @@
 }
 .itens_list{
     margin:5%;
-    background-color: #4F5259;
+    background-color: var(--cor-primaria);
     width: 85%;
     height: 100%;
     border-radius: 15px;
     padding: 15px;
     display:flex;
     justify-content: center;
-    
 }
 
 tr{
-    border:1px solid #f2f2f2;
+    border:1px solid var(cor-texto);
     padding: 10px;
 }
 
@@ -95,6 +96,10 @@ th{
 }
 
 .btn_erro{
+    background: none;
+    border:none;
+    font-size: 15px;
+    text-decoration: none;
     color:rgb(255, 120, 66);
 }
 
@@ -120,7 +125,7 @@ td a:hover{
 }
 
 .nome_game{
-    background-color:#4F5259;
+    background-color:var(--cor-primaria);
     width: 65%;
     border-radius: 15px;
     display:flex;
@@ -142,5 +147,11 @@ td a:hover{
         text-align: center;
         padding: 15px
     }
+    .btn_erro{
+        font-size: 10px;
+    }
 
+    .itens_list{
+        width:100%
+    }
 }

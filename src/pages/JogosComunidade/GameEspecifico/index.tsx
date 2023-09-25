@@ -1,6 +1,5 @@
-import axios from "axios";
 import './GameEspecifico.css'
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import iData from "../../../interfaces/iData/iData";
 import Button from "../../../componentes/Button";
@@ -14,10 +13,6 @@ export default function GameEspecifico(){
     const a: string | undefined= parametros.id
 
         let escolhas:any = escolha[a]
-
-
-
-
 
 
     const [valor1, setValor1] = useState(1);
@@ -35,10 +30,10 @@ export default function GameEspecifico(){
             setValor1(valor1 + 2);
             setValor2(valor2 + 2);
         var novoItem = {
-            nome: e.nome,
-            link: e.link,
-            video: e.video,
-            id:id
+            mediaName: e.mediaName,
+            mediaLink: e.mediaLink,
+            isVideo: e.isVideo,
+            mediaID: id
         }
 
         setArray([...array, novoItem] )
@@ -52,11 +47,11 @@ export default function GameEspecifico(){
 
     var elementosTela = escolhas.filter((e :iData) => {
 
-        return e.id === valor1 || e.id === valor2
+        return e.mediaID === valor1 || e.mediaID === valor2
     })
 
     var elementosTela2 = array.filter((e) => {
-        return e.id === valor1 || e.id === valor2
+        return e.mediaID === valor1 || e.mediaID === valor2
     })
 
     console.log(a)
@@ -72,10 +67,10 @@ export default function GameEspecifico(){
                 <div className="div_elementos_tela">
 
                     {elementosTela.map((e:iData) => {
-                        if(e.video === true){
+                        if(e.isVideo === true){
                             return(
                                 <>  <div className="centralizar_video">
-                                        <iframe width="560" height="315" src={`https://www.youtube.com/embed/${e.link}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+                                        <iframe width="560" height="315" src={`https://www.youtube.com/embed/${e.mediaLink}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
                                         <div className="div_botao">
                                             <Button cor1={true} text="Escolher" onClick={() => clickButton(e)}/>
                                         </div>
@@ -85,7 +80,7 @@ export default function GameEspecifico(){
                         }else{
                         return(
                             <>  <div className="centralizar_video">
-                                    <Card name={e.nome} image={e.link} key={e.id}/>
+                                    <Card name={e.mediaName} image={e.mediaLink} key={e.mediaID}/>
                                     <div className="div_botao">
                                         <Button text="Escolher" cor1={true} onClick={() => clickButton(e)}/>
                                     </div>
@@ -98,18 +93,18 @@ export default function GameEspecifico(){
                             if(e.video){
                                 return (
                                         <div className="div_ultimaImagem">
-                                        <h1>Sua escolha é: {array[array.length-1].nome}</h1>
+                                        <h1>Sua escolha é: {array[array.length-1].mediaName}</h1>
                                         <p>A man of culture, I see</p>
-                                        <iframe width="560" height="315" src={`https://www.youtube.com/embed/${array[array.length-1].link}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+                                        <iframe width="560" height="315" src={`https://www.youtube.com/embed/${array[array.length-1].mediaLink}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
                                         <Link className="link_menu" to="http://localhost:3000/">Voltar para o menu</Link> 
                                     </div>
                                 )
                             }else{
                             return (
                                 <div className="div_ultimaImagem">
-                                    <h1>Sua escolha é: {array[array.length-1].nome}</h1>
+                                    <h1>Sua escolha é: {array[array.length-1].mediaName}</h1>
                                     <p>A man of culture, I see</p>
-                                    <img src={array[array.length-1].link} alt="Última imagem selecionada"/>
+                                    <img src={array[array.length-1].mediaLink} alt="Última imagem selecionada"/>
                                     <Link className="link_menu" to="http://localhost:3000/">Voltar para o menu</Link>
                                 </div>
                             )}
@@ -118,7 +113,7 @@ export default function GameEspecifico(){
                             return (
                                 <>
                                     <div className="centralizar_video">
-                                        <iframe width="560" height="315" src={`https://www.youtube.com/embed/${e.link}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+                                        <iframe width="560" height="315" src={`https://www.youtube.com/embed/${e.mediaLink}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
                                         <div className="div_botao">
                                             <Button text="Escolher" cor1={true} onClick={() => clickButton(e)} />
                                         </div>
@@ -126,13 +121,13 @@ export default function GameEspecifico(){
                                 </>
                             )
                         }
-
+                        else{
                         return(
                             <>
                                 <div className="centralizar_video">
-                                    <Card name={e.nome} 
-                                        image={e.link} 
-                                        key={e.id} 
+                                    <Card name={e.mediaName} 
+                                        image={e.mediaLink} 
+                                        key={e.mediaID} 
                                         className={`${escondido? "escondido" : ""}`}
                                     />
                                     <div className={`${escondido? "escondido" : ""} div_botao`}>
@@ -146,14 +141,10 @@ export default function GameEspecifico(){
                                 </div>
                             </>
                         )
-                    })}
+                    }}
+                    )}
                 </div>
-
-
-                    
             </div>
         </section>
     )
 }
-
-

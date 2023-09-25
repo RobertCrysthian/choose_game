@@ -1,7 +1,6 @@
-import "./Card.css"
+import "./Card.css";
 
-
-export default function Card({name, image, className} : {name:string, image: string, className?: string}){
+export default function Card({name, image, className} : {name:string, image:string, className?:string}) {
     return(
         <section className={`section_card ${className}`} >
             <div className="card">

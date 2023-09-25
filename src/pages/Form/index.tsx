@@ -1,67 +1,49 @@
-import { useEffect, useState } from 'react'
-import Button from '../../componentes/Button'
-import './Form.css'
-import axios from 'axios'
-import iData from '../../interfaces/iData/iData'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import Button from '../../componentes/Button';
+import './Form.css';
+import iData from '../../interfaces/iData/iData';
+import { Link } from 'react-router-dom';
+import api from '../../service/api'
 
+export default function Form() {
 
-
-export default function Form(){
-
-
-    const [data, setData] = useState<iData[]>([])
-    const [itemName, setItemName] = useState('')
-    const [itemLink, setItemLink] = useState('')
-    const [video, setVideo] = useState(false)
-
-
+    const [data, setData] = useState<iData[]>([]);
+    const [itemName, setItemName] = useState('');
+    const [itemLink, setItemLink] = useState<any>('');
+    const [video, setVideo] = useState(false);
 
 
     useEffect(() => {
-        axios.get("http://localhost:8080/itens")
+        api.get("/listall")
         .then(resposta => setData(resposta.data))
     }, [])
 
 
-    const submit = (event : any) => {
-        if(video && itemLink.length !== 11){
-            event.preventDefault()
-            alert("Por favor, clique no botão 'video' para converter o link. ")
-        }else{
-        axios.post('http://localhost:8080/itens', {
-           nome: itemName,
-           link: itemLink, 
-           video: video
-        })
-        setItemName("")
-        setItemLink("")
+    function postarLink(nomeItem, linkItem, temVideo){
+        api.post(`/new?mediaName=${nomeItem}&mediaLink=${linkItem}&isVideo=${temVideo}`, {})
+            setItemName("")
+            setItemLink("")    
+    }
+
+    const submit = () => {
+        if(video === true){
+            const filtro = new RegExp (/(\S{11})$/gm)
+            const linkFiltrado = itemLink.match(filtro)
+            postarLink(itemName, linkFiltrado, video)
+        }else {
+            postarLink(itemName, itemLink, video)
         } 
     }
 
-        const deleteItem = (id :number) =>{
-
-            axios.delete(`http://localhost:8080/itens/${id}`)
+        const deleteItem = (id:number) =>{       
+            window.location.reload()
+            api.delete(`/remove?mediaID=${id}`)
             .then(() => {
-                const newItens = data.filter(item => item.id !== id)
+                const newItens = data.filter(item => item.mediaID !== id)
                 setData([...newItens])
             })
-
-
-        }
-   
-        const adicionarVideo = () => {
-            setVideo(true)
-            setItemLink(itemLink.slice(-11))
-
-    }
-        const adicionarImagem = () => {
-            setVideo(false)
         }
 
-
-
-    
         return(
             <>
             <section className="section_form">
@@ -75,24 +57,22 @@ export default function Form(){
                         <div className="divs_checkbox">
                             <div className="a">
                                 <label>Video</label>
-                                <input type="radio" name="ok" onClick={adicionarVideo}></input>
+                                <input type="radio" name="ok" required={true} onClick={() => setVideo(true)}></input>
                             </div>
                             <div className="b">
                                 <label>Imagem</label>
-                                <input type="radio" name="ok" onClick={adicionarImagem}></input>
+                                <input type="radio" name="ok" required={true} onClick={() => setVideo(false)}></input>
                             </div>
                         </div>
                         <Button text="Enviar"/>
                     </form>
                 </div>
             </section>
-
             <section className='section_list'>
                 <div className="itens_list">
                     <table className="table__">
                         <thead>
                             <tr>
-                                <td>ID</td>
                                 <td>Nome </td>
                                 <td>Link </td>
                                 <td>Tipo</td>
@@ -103,13 +83,12 @@ export default function Form(){
                             <tbody>
                             {data.map((e) => {
                                 return(
-                                    <tr key={e.id}>
-                                        <td>{e.id}</td>
-                                        <td>{e.nome}</td>
-                                        <td>{e.video? <a href={`https://www.youtube.com/watch?v=${e.link}`} target="_blank">Clique para ver</a> : <a href={e.link} target="_blank">Clique para ver</a>}</td>
-                                        <td>{`${e.video? "Video" : "Imagem"}`}</td>
-                                        <td className="editar"><Link className="editar" to={`/itens/${e.id}`}>Editar</Link></td>
-                                        <td><a className="btn_erro" onClick={() => deleteItem(e.id)}>Apagar  </a></td>
+                                    <tr key={e.mediaID}>
+                                        <td>{e.mediaName}</td>
+                                        <td>{e.isVideo ? <a href={`https://www.youtube.com/watch?v=${e.mediaLink}`} target="_blank" rel="noreferrer">Clique para ver</a> : <a href={e.mediaLink} target="_blank" rel="noreferrer">Clique para ver</a>}</td>
+                                        <td>{`${e.isVideo? "Video" : "Imagem"}`}</td>
+                                        <td className="editar"><Link className="editar" to={`/itens/${e.mediaID}`}>Editar</Link></td>
+                                        <td><button className="btn_erro" onClick={() => deleteItem(e.mediaID)}>Apagar  </button></td>
                                     </tr>
                                 )
                             })}

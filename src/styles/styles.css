@@ -4,15 +4,15 @@
 
 :root{
 
---cor-primaria: #5c5c5c;
---cor-primaria-hover:#424242;
---cor-texto: #F2F2F2;
---cor-fundo: #181818;
---cor-fundo2: #272727;
+--cor-primaria: #6dbd89;
+--cor-primaria-hover:#489964;
+--cor-texto: #feffdf;
+--cor-fundo: #307f92;
+--cor-fundo2: #668ba4;
 
---cor-cabecalho: #5a5a5a;
+--cor-cabecalho: #97cba9;
 
---cor-card: #858585;
---cor-fundo-card: #494544;
+--cor-card: #97cba9;
+--cor-fundo-card: #97cba9;
 
 }
