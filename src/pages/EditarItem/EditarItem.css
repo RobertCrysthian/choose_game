@@ -1,18 +1,29 @@
+@import '../../styles/styles.css';
+
 .section_editarItem{
     display:flex;
     justify-content: center;
     margin-top: 5%;
 }
 
+div.div_editarItem{
+    border:2px solid var(--cor-primaria);
+}
+
 .div_editarItem{
-    background-color: #4F5259;
+    background-color: var(--cor-card);
     width: 80%;
     height: 600px;
     border-radius: 15px;
     display:flex;
     flex-direction:column;
     align-items: center;
+
     padding: 15px;
+}
+
+div.div_editarItem{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .div_editarItem h1{
@@ -31,7 +42,6 @@
     margin-bottom:15px ;
 }
 
-
 .div_editarItem label{
     padding: 10px;
     font-size: 20px;
@@ -49,6 +59,7 @@
         width: 95%;
         text-align: center;
     }
+    
     .div_editarItem input{
         width: 100%;
     }

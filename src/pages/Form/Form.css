@@ -1,17 +1,31 @@
+@import '../../styles/styles.css';
+
+
 .section_form{
     display:flex;
     justify-content: center;
     margin-top: 50px;
+    
 }
 
+
 .form{
-    background-color: #4F5259;
+
     display:flex;
     flex-direction: column;
     align-items: center;
     width: 65%;
     height: 600px;
+    margin-bottom: 30px;
     border-radius: 15px;
+
+}
+
+div.form{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: var(--cor-card);
+    border:2px solid var(--cor-primaria);
+    
 }
 
 .form h1{
@@ -26,16 +40,15 @@
 
 .form input{
     width: 80%;
-    height: 25px;
+    height: 28px;
     font-size: 20px;
     font-family: 'Poppins', sans-serif;
-    color:#020202;
     justify-content: center;
     margin-bottom:15px ;
 }
 
 .form label{
-    color:#d3d3d3;
+    color:var(cor-texto);
     font-family: 'Poppins', sans-serif;
 }
 
@@ -63,23 +76,25 @@
 }
 .itens_list{
     margin:5%;
-    background-color: #4F5259;
+    background-color: var(--cor-card);
     width: 85%;
     height: 100%;
     border-radius: 15px;
     padding: 15px;
     display:flex;
     justify-content: center;
-    
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border:2px solid var(--cor-primaria);
 }
 
 tr{
-    border:1px solid #f2f2f2;
+    border:1px solid var(cor-texto);
     padding: 10px;
+    background-color: #393e46;
 }
 
 td{
-    border:1px solid #111111;
+    border:2px solid var(--cor-primaria-hover);
     padding-left: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -95,32 +110,36 @@ th{
 }
 
 .btn_erro{
-    color:rgb(255, 120, 66);
+    background: none;
+    border:none;
+    font-size: 15px;
+    text-decoration: none;
+    color:rgb(240, 92, 82);
 }
 
 .btn_erro:hover{
     cursor:pointer;
-    color:rgb(238, 100, 46);
+    color:rgb(146, 34, 0);
 }
 
 .editar{
-    color:#1397d4;
+    color:#3a74f0;
 }
 .editar:hover{
-    color:#0d79ac;
+    color:#022e42;
 }
 
 td a{
-    color:#f1a5a5;
+    color:#d66969;
     text-decoration: none;
 }
 
 td a:hover{
-    color:#cc7e7e;
+    color:#ff6b6b;
 }
 
 .nome_game{
-    background-color:#4F5259;
+    background-color:var(--cor-primaria);
     width: 65%;
     border-radius: 15px;
     display:flex;
@@ -142,5 +161,11 @@ td a:hover{
         text-align: center;
         padding: 15px
     }
+    .btn_erro{
+        font-size: 10px;
+    }
 
+    .itens_list{
+        width:100%
+    }
 }
