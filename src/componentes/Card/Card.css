@@ -8,13 +8,14 @@
 
 .card{
     background-color: var(--cor-fundo-card);
-    width: 550px;
+    width: 750px;
     padding-top: 20px;
-    height: 440px;
-    border-radius: 7px;
+    height: 530px;
+    border-radius: 10px;
     display:flex;
     justify-content: center;
     margin-bottom: 30px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .card_background{
@@ -53,8 +54,9 @@ height: 100%;
         width: 340px;
     }
 
+
     .card_background{
-        height: 350px;
+        height: 300px;
         width: 310px
     }
 }

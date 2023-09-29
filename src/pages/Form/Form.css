@@ -5,16 +5,27 @@
     display:flex;
     justify-content: center;
     margin-top: 50px;
+    
 }
 
+
 .form{
-    background-color: var(--cor-primaria);
+
     display:flex;
     flex-direction: column;
     align-items: center;
     width: 65%;
     height: 600px;
+    margin-bottom: 30px;
     border-radius: 15px;
+    
+}
+
+div.form{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: var(--cor-card);
+    border:2px solid var(--cor-primaria);
+    
 }
 
 .form h1{
@@ -28,12 +39,30 @@
 }
 
 .form input{
-    width: 80%;
-    height: 28px;
+    width: 90%;
+    height: 35px;
+    padding-left: 1rem  ;
     font-size: 20px;
     font-family: 'Poppins', sans-serif;
     justify-content: center;
     margin-bottom:15px ;
+    background-color: #ffffff;
+    border:2px solid var(--cor-primaria);
+    border-radius: 32px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+
+.radioInput{
+    all:unset;
+    box-sizing: border-box;
+    cursor: pointer;
+    box-shadow: rgb(0, 0, 0) 1.95px 1.95px 2.6px;
+
+}
+
+.radioInput:checked{
+    background-color: #141414;
 }
 
 .form label{
@@ -50,12 +79,12 @@
 .divs_checkbox .a, .divs_checkbox .b{
     display:flex;
     flex-direction: row;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
 .divs_checkbox input{
-    width: 40px;
+    width: 35px;
 }
 
 .section_list{
@@ -65,22 +94,25 @@
 }
 .itens_list{
     margin:5%;
-    background-color: var(--cor-primaria);
+    background-color: var(--cor-card);
     width: 85%;
     height: 100%;
     border-radius: 15px;
     padding: 15px;
     display:flex;
     justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border:2px solid var(--cor-primaria);
 }
 
 tr{
     border:1px solid var(cor-texto);
     padding: 10px;
+    background-color: #393e46;
 }
 
 td{
-    border:1px solid #111111;
+    border:2px solid var(--cor-primaria-hover);
     padding-left: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -100,28 +132,28 @@ th{
     border:none;
     font-size: 15px;
     text-decoration: none;
-    color:rgb(255, 120, 66);
+    color:rgb(240, 92, 82);
 }
 
 .btn_erro:hover{
     cursor:pointer;
-    color:rgb(238, 100, 46);
+    color:rgb(146, 34, 0);
 }
 
 .editar{
-    color:#1397d4;
+    color:#3a74f0;
 }
 .editar:hover{
-    color:#0d79ac;
+    color:#022e42;
 }
 
 td a{
-    color:#f1a5a5;
+    color:#d66969;
     text-decoration: none;
 }
 
 td a:hover{
-    color:#cc7e7e;
+    color:#ff6b6b;
 }
 
 .nome_game{

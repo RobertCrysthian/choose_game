@@ -85,21 +85,25 @@ export default function EditarItem() {
                         <label>Video</label>
                         <input 
                             type="radio" 
-                            name="ok" 
+                            name="ok"
+                            className="radioInput" 
                             onClick={setarVideo}
                             required={true}
                         />
-                    </div>
-                    <div className="b">
                         <label>Imagem</label>
                         <input 
                             type="radio" 
-                            name="ok" 
+                            name="ok"
+                            className="radioInput" 
                             onClick={setarImagem}
                             required={true}
                         />
                     </div>
-                    <Button text="Editar"/>
+                    <div className="b">
+                        
+
+                    </div>
+                    <Button text="Editar" cor1={true}/>
                 </form>
             </div>
         </section>

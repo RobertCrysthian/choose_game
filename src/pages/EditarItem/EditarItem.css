@@ -1,18 +1,29 @@
+@import '../../styles/styles.css';
+
 .section_editarItem{
     display:flex;
     justify-content: center;
     margin-top: 5%;
 }
 
+div.div_editarItem{
+    border:2px solid var(--cor-primaria);
+}
+
 .div_editarItem{
-    background-color: #4F5259;
+    background-color: var(--cor-card);
     width: 80%;
     height: 600px;
     border-radius: 15px;
     display:flex;
     flex-direction:column;
     align-items: center;
+
     padding: 15px;
+}
+
+div.div_editarItem{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .div_editarItem h1{
@@ -22,13 +33,31 @@
 }
 
 .div_editarItem input{
-    width: 80%;
-    height: 25px;
+    width: 90%;
+    height: 35px;
+    padding-left: 1rem  ;
     font-size: 20px;
     font-family: 'Poppins', sans-serif;
-    color:#0c0c0c;
     justify-content: center;
     margin-bottom:15px ;
+    background-color: #ffffff;
+    border:2px solid var(--cor-primaria);
+    border-radius: 32px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.radioInput{
+    all:unset;
+    box-sizing: border-box;
+    width: 200px;
+    height: 90px;
+    cursor: pointer;
+    box-shadow: rgb(0, 0, 0) 1.95px 1.95px 2.6px;
+
+}
+
+.radioInput:checked{
+    background-color: #141414;
 }
 
 .div_editarItem label{
@@ -38,9 +67,8 @@
 
 .div_editarItem .a, .b{
     display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 255px;
+    
 }
 
 @media (max-width:600px) {

@@ -57,14 +57,15 @@ export default function Form() {
                         <div className="divs_checkbox">
                             <div className="a">
                                 <label>Video</label>
-                                <input type="radio" name="ok" required={true} onClick={() => setVideo(true)}></input>
+                                <input type="radio" className="radioInput" name="ok" required={true} onClick={() => setVideo(true)}></input>
+                                <label>Imagem</label>
+                                <input type="radio" name="ok" className="radioInput" required={true} onClick={() => setVideo(false)}></input>
                             </div>
                             <div className="b">
-                                <label>Imagem</label>
-                                <input type="radio" name="ok" required={true} onClick={() => setVideo(false)}></input>
+
                             </div>
                         </div>
-                        <Button text="Enviar"/>
+                        <Button text="Enviar" cor1={true}/>
                     </form>
                 </div>
             </section>
