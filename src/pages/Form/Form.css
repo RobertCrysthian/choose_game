@@ -40,7 +40,7 @@ div.form{
 
 .form input{
     width: 90%;
-    height: 35px;
+    height: 30px;
     padding-left: 1rem  ;
     font-size: 20px;
     font-family: 'Poppins', sans-serif;
@@ -55,8 +55,8 @@ div.form{
 
 .radioInput{
     all:unset;
-    box-sizing: border-box;
     cursor: pointer;
+    width: 20px;
     box-shadow: rgb(0, 0, 0) 1.95px 1.95px 2.6px;
 
 }
@@ -76,15 +76,15 @@ div.form{
     margin: 10px;
 }
 
-.divs_checkbox .a, .divs_checkbox .b{
+.divs_checkbox .a{
     display:flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
 
+
 .divs_checkbox input{
-    width: 35px;
+    width: 15px;
 }
 
 .section_list{

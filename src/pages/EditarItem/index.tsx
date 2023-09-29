@@ -97,10 +97,7 @@ export default function EditarItem() {
                             className="radioInput" 
                             onClick={setarImagem}
                             required={true}
-                        />
-                    </div>
-                    <div className="b">
-                        
+                        />                       
 
                     </div>
                     <Button text="Editar" cor1={true}/>

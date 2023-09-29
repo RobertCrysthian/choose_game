@@ -38,10 +38,6 @@ export default function Form() {
         const deleteItem = (id:number) =>{       
             window.location.reload()
             api.delete(`/remove?mediaID=${id}`)
-            .then(() => {
-                const newItens = data.filter(item => item.mediaID !== id)
-                setData([...newItens])
-            })
         }
 
         return(
@@ -60,9 +56,6 @@ export default function Form() {
                                 <input type="radio" className="radioInput" name="ok" required={true} onClick={() => setVideo(true)}></input>
                                 <label>Imagem</label>
                                 <input type="radio" name="ok" className="radioInput" required={true} onClick={() => setVideo(false)}></input>
-                            </div>
-                            <div className="b">
-
                             </div>
                         </div>
                         <Button text="Enviar" cor1={true}/>

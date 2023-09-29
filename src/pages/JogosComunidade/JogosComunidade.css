@@ -8,7 +8,6 @@
 
 .div_campo_fundo{
     margin-top: 40px;
-    background-color: var(--cor-primaria);
     width: 90%; 
     height: 130%;
     border-radius: 15px;
@@ -19,12 +18,11 @@
 }
 
 .div_link{
-    background-color: var(--cor-primaria);
+    background-color: var(--cor-card);
     border:1px solid #181818;
-    background-color: var(--cor-primaria);
     border-radius: 5px;
-    width: 30%;
-    height: 400px;
+    width: 90%;
+    height: 500px;
     display:flex;
     justify-content: center;
     align-items: center;

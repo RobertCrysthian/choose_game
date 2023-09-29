@@ -8,9 +8,10 @@
 
 .card{
     background-color: var(--cor-fundo-card);
-    width: 750px;
+    border:2px solid var(--cor-primaria);
+    width: 630px;
     padding-top: 20px;
-    height: 530px;
+    height: 500px;
     border-radius: 10px;
     display:flex;
     justify-content: center;

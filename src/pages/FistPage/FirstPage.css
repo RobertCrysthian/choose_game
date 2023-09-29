@@ -18,7 +18,7 @@
     font-family: 'Poppins', sans-serif;
     font-size:20px;
     color:var(cor-texto);
-    background-color:var(--cor-primaria);
+    background-color: var(--cor-primaria);
     width: 100%;
     height: 50px;
     margin: 15px 5%;

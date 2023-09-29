@@ -104,7 +104,7 @@ export default function InGame(){
                                 )
                             }else{
                             return (
-                                <div className="div_ultimaImagem">
+                                <div className={`div_ultimaImagem`}>
                                     <h1>Sua escolha é: {array[array.length-1].mediaName}</h1>
                                     <p>A man of culture, I see</p>
                                     <img src={array[array.length-1].mediaLink} alt="Última imagem selecionada"/>
@@ -115,9 +115,9 @@ export default function InGame(){
                         if (e.isVideo === true) {
                             return (
                                 <>
-                                    <div className="centralizar_video">
+                                    <div className={`centralizar_video ${escondido? "escondido" : ""}`}>
                                     <CardVideo name={e.mediaName} link={e.mediaLink} />
-                                        <div className="div_botao">
+                                        <div className={`div_botao ${escondido? "escondido" : ""}`}>
                                             <Button text="Escolher" cor1={true} onClick={() => clickButton(e)} />
                                         </div>
                                     </div>
@@ -126,7 +126,7 @@ export default function InGame(){
                         }
                         return(
                             <>
-                                <div className="centralizar_video">
+                                <div className={`centralizar_video ${escondido? "escondido" : ""}`}>
                                 <Card name={e.mediaName} 
                                       image={e.mediaLink} 
                                       key={e.mediaID}

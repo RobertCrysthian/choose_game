@@ -33,7 +33,6 @@ div.div_editarItem{
 }
 
 .div_editarItem input{
-    width: 90%;
     height: 35px;
     padding-left: 1rem  ;
     font-size: 20px;
@@ -48,10 +47,8 @@ div.div_editarItem{
 
 .radioInput{
     all:unset;
-    box-sizing: border-box;
-    width: 200px;
-    height: 90px;
     cursor: pointer;
+    width: 21px;
     box-shadow: rgb(0, 0, 0) 1.95px 1.95px 2.6px;
 
 }
@@ -65,9 +62,11 @@ div.div_editarItem{
     font-size: 20px;
 }
 
-.div_editarItem .a, .b{
+.div_editarItem .a{
     display:flex;
-    width: 255px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     
 }
 
